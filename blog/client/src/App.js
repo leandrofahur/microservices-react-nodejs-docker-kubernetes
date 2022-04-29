@@ -1,17 +1,16 @@
 import React from "react";
-import PostCreate from "./components/PostCreate";
-import PostList from "./components/PostList";
+import PostCreate from "./PostCreate";
+import PostList from "./PostList";
 
-function App() {
+const App = () => {
   return (
     <div className="container">
-      <h1>Create a new Post</h1>
+      <h1>Create Post</h1>
       <PostCreate />
       <hr />
       <h1>Posts</h1>
       <PostList />
     </div>
   );
-}
-
+};
 export default App;

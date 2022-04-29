@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
 import CommentCreate from "./CommentCreate";
 import CommentList from "./CommentList";
 
-function PostList() {
+const PostList = () => {
   const [posts, setPosts] = useState({});
 
-  async function fetchPost() {
-    const response = await axios.get("http://localhost:4002/posts");
-    setPosts(response.data);
-  }
+  const fetchPosts = async () => {
+    const res = await axios.get("http://localhost:4002/posts");
+
+    setPosts(res.data);
+  };
 
   useEffect(() => {
-    fetchPost();
+    fetchPosts();
   }, []);
 
-  const renderPosts = Object.values(posts).map((post) => {
+  const renderedPosts = Object.values(posts).map((post) => {
     return (
       <div
         className="card"
@@ -34,9 +34,9 @@ function PostList() {
 
   return (
     <div className="d-flex flex-row flex-wrap justify-content-between">
-      {renderPosts}
+      {renderedPosts}
     </div>
   );
-}
+};
 
 export default PostList;

@@ -7,9 +7,12 @@ import { signinRouter } from "./routes/signin";
 import { signoutRouter } from "./routes/signout";
 import { signupRouter } from "./routes/signup";
 import { NotFoundError } from "./errors/not-found-error";
+import { connectDB } from "./databases";
 
 const app = express();
 app.use(express.json());
+
+connectDB();
 
 // routes
 app.use(currentUserRouter);

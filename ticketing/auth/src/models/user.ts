@@ -35,7 +35,7 @@ const userSchema = new mongoose.Schema({
 
 // Function that enforces typescript rules:
 userSchema.statics.build = ({ email, password }: IUser) => {
-  return new User(email, password);
+  return new User({ email, password });
 };
 
 const User = mongoose.model<UserDocument, UserModel>("User", userSchema);
